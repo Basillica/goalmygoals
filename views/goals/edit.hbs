@@ -1,0 +1,51 @@
+<h3>Edit Goal</h3>
+<div class="row">
+    <form action="/goals/{{goal._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title" value="{{goal.title}}">
+                <label for="title">Title</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select id="status" name="status">
+                    {{#select goal.status}}
+                    <option value="Not-started">Not-started</option>
+                    <option value="Completed" >Completed</option>
+                    <option value="In-view">In-view</option>
+                    {{/select}}
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select id="duration" name="duration">
+                    {{#select goal.duration}}
+                        <option value="days" >Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months</option>
+                        <option value="years">Years</option>
+                    {{/select}}
+                </select>
+                <label for="duration">Time Frame</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Modify your goal!</h5>:</h5>
+                <textarea id="body" name="body">{{goal.body}}</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

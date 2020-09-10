@@ -1,0 +1,51 @@
+<br>
+<h6>Dashboard</h6>
+<h3> Welcome <b>{{name}}</b> </h3>
+
+{{#if goals}}
+<p>My Set goals!</p>
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Duration</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Work On</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each goals}}
+            <tr>
+                <td><a href="/goals/{{_id}}">{{title}}</a></td>
+                <td>{{duration}}</td>
+                <td><spand class="dash-status"></spand>{{status}}</spand></td>
+                <td>{{formatDate createdAt 'MMMM Do YYYY, hh:mm:ss a'}}</td>
+                <td>
+                    <a href="/goals/edit/{{_id}}" class="btn btn-float">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
+                <td class="td">
+                    <form action="/goals/{{_id}}" method="POST" id="delete_form">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button tye="submit" class="btn red">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </form>
+                </td>
+                <td>
+                    <a href="/goals/work/{{_id}}" class="btn btn-float">
+                        <i class="fas fa-cogs"></i>
+                    </a>
+                </td>
+            </tr>
+        {{/each}}
+        <br>
+    </tbody>
+</table>
+{{else}}
+<p>You have not set any goals!</p>
+{{/if}}
