@@ -4,7 +4,7 @@
   "description": "An app to create personal goals",
   "main": "app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app",
+    "start": "node app.js",
     "dev": "cross-env NODE_ENV=development nodemon app"
   },
   "author": "anthony ezeabasili",
